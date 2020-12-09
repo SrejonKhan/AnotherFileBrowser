@@ -16,7 +16,7 @@ Implementation is quite easy, but before implementing let's know about **Browser
 
 **BrowserProperties**
 
-```
+```csharp
 public class BrowserProperties
 {
     public string title; //Title of the Dialog
@@ -35,7 +35,7 @@ Make sure to define `AnotherFileBrowser.Windows` namespace.
 
 ### Picking a Single File
 
-```
+```csharp
 var bp = new BrowserProperties();
 bp.filter = "txt files (*.txt)|*.txt|All Files (*.*)|*.*";
 bp.filterIndex = 0;
@@ -49,7 +49,7 @@ new FileBrowser().OpenFileBrowser(bp, path =>
 
 ### Picking Multiple File(s)
 
-```
+```csharp
 var bp = new BrowserProperties();
 bp.filter = "txt files (*.txt)|*.txt|All Files (*.*)|*.*";
 bp.filterIndex = 0;
@@ -68,7 +68,7 @@ new FileBrowser().OpenMultiSelectFileBrowser(bp, path =>
 
 ### Picking Folder Path
 
-```
+```csharp
 var bp = new BrowserProperties();
 bp.filter = "txt files (*.txt)|*.txt|All Files (*.*)|*.*";
 bp.filterIndex = 0;
@@ -82,7 +82,7 @@ new FileBrowser().OpenFolderBrowser(bp, path =>
 
 ### Picking Path for Saving File
 
-```
+```csharp
 var bp = new BrowserProperties();
 bp.filter = "txt files (*.txt)|*.txt";
 bp.filterIndex = 0;
