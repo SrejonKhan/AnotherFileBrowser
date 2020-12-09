@@ -1,6 +1,6 @@
 # AnotherFileBrowser
 
-Just an another File Dialog for Unity, with easy implementation. Using Ookii Dialogs. Rather than putting everything in .dll, i've done this simply with a class, so you can extend it based on Ookii Dialogs.
+Just another File Dialog for Unity, with easy implementation. Using Ookii Dialogs. Rather than putting everything in .dll, i've done this simply with a class, so you can extend it based on Ookii Dialogs.
 
 ![alt-text](demo.gif)
 
