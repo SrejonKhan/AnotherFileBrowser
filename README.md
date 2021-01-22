@@ -104,7 +104,7 @@ I'm facing crashes if try to open dialog from il2cpp build. If you want to try i
 
 There must be a workaround, you can check crash logs after crash. I will try to fix it, if you already fixed it, open a PR, it would be highly appreciated.
 
-#### Android Support
+## Android Support
 
 This is only for Windows. You can check out [UnityNativeFilePicker](https://github.com/yasirkula/UnityNativeFilePicker) by Yasirkula. There are plenty of native plugins, but this one support iOS too.
 
