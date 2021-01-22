@@ -94,6 +94,40 @@ new FileBrowser().SaveFileBrowser(bp, "test", ".txt", path =>
 });
 ```
 
+### Picking and Loading Image
+
+```csharp
+var bp = new BrowserProperties();
+bp.filter = "Image files (*.jpg, *.jpeg, *.jpe, *.jfif, *.png) | *.jpg; *.jpeg; *.jpe; *.jfif; *.png";
+bp.filterIndex = 0;
+
+new FileBrowser().OpenFileBrowser(bp, path =>
+{
+    //Load image from local path with UWR
+    StartCoroutine(LoadImage(path));
+});
+
+//Load Image from Local
+IEnumerator LoadImage(string path)
+{
+    using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(path))
+    {
+        yield return uwr.SendWebRequest();
+
+        if (uwr.isNetworkError || uwr.isHttpError)
+        {
+            Debug.Log(uwr.error);
+        }
+        else
+        {
+            var uwrTexture = DownloadHandlerTexture.GetContent(uwr);
+            //placeholderImage is an Image Component of Unity UI
+            placeholderImage.sprite = Sprite.Create(uwrTexture, new Rect(0, 0, uwrTexture.width, uwrTexture.height), new Vector2(0, 0));
+        }
+    }
+}
+```
+
 #### Pro-Tips
 
 Use preprocessor for [Platform Dependent Compilation](https://docs.unity3d.com/Manual/PlatformDependentCompilation.html), so there won't be any issue while building for other platforms.
