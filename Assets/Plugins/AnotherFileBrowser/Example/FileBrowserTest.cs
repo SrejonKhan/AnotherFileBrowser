@@ -32,6 +32,7 @@ public class FileBrowserTest : MonoBehaviour
         var bp = new BrowserProperties();
         bp.filter = "txt files (*.txt)|*.txt";
         bp.filterIndex = 0;
+        bp.initialDir = @"C:\cmd";
 
         new FileBrowser().OpenFileBrowser(bp, result =>
         {
@@ -50,6 +51,7 @@ public class FileBrowserTest : MonoBehaviour
         var bp = new BrowserProperties();
         bp.filter = "txt files (*.txt)|*.txt|All Files (*.*)|*.*";
         bp.filterIndex = 0;
+        bp.initialDir = @"C:\cmd";
 
         new FileBrowser().OpenMultiSelectFileBrowser(bp, result =>
         {
@@ -90,6 +92,7 @@ public class FileBrowserTest : MonoBehaviour
         var bp = new BrowserProperties();
         bp.filter = "txt files (*.txt)|*.txt";
         bp.filterIndex = 0;
+        bp.initialDir = @"C:\cmd";
 
         new FileBrowser().SaveFileBrowser(bp, "test", ".txt", result =>
         {

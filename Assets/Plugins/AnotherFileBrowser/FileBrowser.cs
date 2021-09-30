@@ -3,6 +3,7 @@ using Ookii.Dialogs;
 using System;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace AnotherFileBrowser.Windows
 {
@@ -23,7 +24,7 @@ namespace AnotherFileBrowser.Windows
             var ofd = new VistaOpenFileDialog();
             ofd.Multiselect = false;
             ofd.Title = browserProperties.title == null ? "Select a File" : browserProperties.title;
-            ofd.InitialDirectory = browserProperties.initialDir == null ? @"C:\" : browserProperties.initialDir;
+            ofd.FileName = ValidateInitialDir(browserProperties.initialDir); // initial dir
             ofd.Filter = browserProperties.filter == null ? "All files (*.*)|*.*" : browserProperties.filter;
             ofd.FilterIndex = browserProperties.filterIndex + 1;
             ofd.RestoreDirectory = browserProperties.restoreDirectory;
@@ -44,7 +45,7 @@ namespace AnotherFileBrowser.Windows
             var ofd = new VistaOpenFileDialog();
             ofd.Multiselect = true;
             ofd.Title = browserProperties.title == null ? "Select a File" : browserProperties.title;
-            ofd.InitialDirectory = browserProperties.initialDir == null ? @"C:\" : browserProperties.initialDir;
+            ofd.FileName = ValidateInitialDir(browserProperties.initialDir); // initial dir
             ofd.Filter = browserProperties.filter == null ? "All files (*.*)|*.*" : browserProperties.filter;
             ofd.FilterIndex = browserProperties.filterIndex + 1;
             ofd.RestoreDirectory = browserProperties.restoreDirectory;
@@ -87,7 +88,7 @@ namespace AnotherFileBrowser.Windows
             ofd.CheckPathExists = true;
             ofd.OverwritePrompt = true;
             ofd.Title = browserProperties.title;
-            ofd.InitialDirectory = browserProperties.initialDir == null ? @"C:\" : browserProperties.initialDir;
+            ofd.FileName = ValidateInitialDir(browserProperties.initialDir); // initial dir
             ofd.Filter = browserProperties.filter;
             ofd.FilterIndex = browserProperties.filterIndex + 1;
             ofd.RestoreDirectory = browserProperties.restoreDirectory;
@@ -96,6 +97,22 @@ namespace AnotherFileBrowser.Windows
             {
                 savepath(ofd.FileName);
             }
+        }
+
+        private string ValidateInitialDir(string dir)
+        {
+            if (string.IsNullOrEmpty(dir) || string.IsNullOrWhiteSpace(dir))
+                return "";
+
+            if (!Directory.Exists(dir))
+                return "";
+
+            // add trailing slash to open directory perfectly
+            if (dir[dir.Length - 1] != '/' && dir[dir.Length - 1] != '\\')
+                return dir + "/";
+
+            return dir;
+
         }
     }
 
