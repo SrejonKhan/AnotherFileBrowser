@@ -6,9 +6,11 @@ Just another File Dialog for Unity, with easy implementation. Using Ookii Dialog
 
 # Getting Started
 
-Download the **latest release** from Releases. Import it to Unity. Or, if you want download the project, just **clone** it.
+Open Package Manager in Unity and Click on Plus Icon -> Add package from git URL, paste following link `https://github.com/SrejonKhan/AnotherFileBrowser.git` and click Add.
 
 After importing, change **Change API Compatibility Level** to **_.NET 4.x_**, from `Project Settings -> Player -> Other Settings`. And, change **Scripting Backend** to **_Mono_**.
+
+For example, go to `Packages -> Another File Browser -> Example` in Project View, then import `Example.unitypackage`.
 
 # Implementation
 
@@ -138,7 +140,7 @@ I'm facing crashes if try to open dialog from il2cpp build. If you want to try i
 
 There must be a workaround, you can check crash logs after crash. I will try to fix it, if you already fixed it, open a PR, it would be highly appreciated.
 
-## Android Support
+# Android / iOS Support
 
 This is only for Windows. You can check out [UnityNativeFilePicker](https://github.com/yasirkula/UnityNativeFilePicker) by Yasirkula. There are plenty of native plugins, but this one support iOS too.
 
