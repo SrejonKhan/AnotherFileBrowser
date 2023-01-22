@@ -1,4 +1,4 @@
-﻿#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
+#if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
 using Ookii.Dialogs;
 using System;
 using System.Windows.Forms;
@@ -83,12 +83,11 @@ namespace AnotherFileBrowser.Windows
         public void SaveFileBrowser(BrowserProperties browserProperties, string defaultFileName, string defaultExt, Action<string> savepath)
         {
             var ofd = new VistaSaveFileDialog();
-            ofd.FileName = defaultFileName;
             ofd.DefaultExt = defaultExt;
             ofd.CheckPathExists = true;
             ofd.OverwritePrompt = true;
             ofd.Title = browserProperties.title;
-            ofd.FileName = ValidateInitialDir(browserProperties.initialDir); // initial dir
+            ofd.FileName = ValidateInitialDir(browserProperties.initialDir) + defaultFileName; // initial dir
             ofd.Filter = browserProperties.filter;
             ofd.FilterIndex = browserProperties.filterIndex + 1;
             ofd.RestoreDirectory = browserProperties.restoreDirectory;
