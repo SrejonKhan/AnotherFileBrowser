@@ -54,6 +54,10 @@ namespace AnotherFileBrowser.Windows
             {
                 filepath(ofd.FileNames);
             }
+            else
+            {
+                filepath?.Invoke(null);
+            }
         }
 
         /// <summary>
@@ -70,6 +74,10 @@ namespace AnotherFileBrowser.Windows
             if (ofd.ShowDialog(new WindowWrapper(GetActiveWindow())) == DialogResult.OK)
             {
                 folderpath(ofd.SelectedPath);
+            }
+            else
+            {
+                folderpath?.Invoke(null);
             }
         }
 
@@ -95,6 +103,10 @@ namespace AnotherFileBrowser.Windows
             if (ofd.ShowDialog(new WindowWrapper(GetActiveWindow())) == DialogResult.OK)
             {
                 savepath(ofd.FileName);
+            }
+            else
+            {
+                savepath?.Invoke(null);
             }
         }
 
