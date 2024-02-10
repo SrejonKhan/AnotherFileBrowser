@@ -1,5 +1,5 @@
 #if UNITY_STANDALONE_WIN || UNITY_EDITOR_WIN
-using Ookii.Dialogs;
+using Ookii.Dialogs.WinForms;
 using System;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
