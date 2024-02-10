@@ -16,5 +16,12 @@
     "email": "srejonkhan9@gmail.com",
     "url": "https://srejonkhan.github.io/"
   },
-  "type": "library"
+  "type": "library",
+  "samples": [
+    {
+      "displayName": "Samples",
+      "description": "A simple example of how to use Another File Browser.",
+      "path": "Samples~/AnotherFileBrowser"
+    }
+  ]
 }
